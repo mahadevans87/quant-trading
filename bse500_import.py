@@ -1,4 +1,3 @@
-# 3Fc4HVEV6aiSfGMqZ2gM
 # Do necessary Imports
 import os
 import numpy as np
@@ -12,7 +11,7 @@ print(bse500_metadata.head(2))
 
 # Get all 500+ tickers
 tickers = list(bse500_metadata['Scrip Code'])  # Input your quandl key
-quandl.ApiConfig.api_key = '3Fc4HVEV6aiSfGMqZ2gM'  # Start Bulk download in a loop and create a Dataframedef get(tickers):
+quandl.ApiConfig.api_key = '<Your API Key>'  # Start Bulk download in a loop and create a Dataframedef get(tickers):
 print(tickers[:2])
 
 stray_tickers = []
