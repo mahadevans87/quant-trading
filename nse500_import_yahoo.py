@@ -9,9 +9,18 @@ import yfinance as yf
 nse500_metadata = pd.read_csv('ind_nifty500list.csv')
 # print(bse500_metadata.head(2))
 
+tickers = []
 # Get all 500+ tickers
 tickers = list(nse500_metadata['Symbol'])
 
+# nse_constituents = pd.read_csv('index_constituents/nifty_constituents.csv', index_col=0, parse_dates=[0])
+# for ticker_index in  nse_constituents.index:
+#     ticker_row = nse_constituents.loc[ticker_index]
+#     [tickers.append(incoming_ticker) for incoming_ticker in ticker_row[0].split(',') if incoming_ticker not in tickers]
+#
+# print(tickers)
+# print(len(tickers))
+#tickers = ['RELINFRA']
 
 # print(tickers[:2])
 
@@ -35,8 +44,14 @@ prices['high'] = df['High'];
 prices['low'] = df['Low'];
 prices['close'] = df['Adj Close'];
 prices['volume'] = df['Volume'];
-prices['dividend'] = df['Dividends']
-prices['split'] = df['Stock Splits']
+if 'Dividends' in df:
+    prices['dividend'] = df['Dividends']
+else:
+    prices['dividend'] = 0
+if 'Stock Splits' in df:
+    prices['split'] = df['Stock Splits']
+else:
+    prices['split'] = 0
 
 
 
